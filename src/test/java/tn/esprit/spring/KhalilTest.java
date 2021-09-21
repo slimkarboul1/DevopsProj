@@ -17,7 +17,7 @@ public class KhalilTest {
 	@Autowired
 	IEmployeService iemployeservice;
 	@Test
-	public void contextLoads() {
+	public void testContextLoads() {
 		System.out.println("khalil branch");
 		Employe empl = new Employe("khalil", "sayhi", "khalil.sayhi1@esprit.tn", "khalil", true,Role.CHEF_DEPARTEMENT );
 		int id = this.iemployeservice.addOrUpdateEmploye(empl);
