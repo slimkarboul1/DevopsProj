@@ -18,6 +18,7 @@ public class KhalilTest {
 	IEmployeService iemployeservice;
 	@Test
 	public void contextLoads() {
+		System.out.println("nothing");
 		Employe empl = new Employe("khalil", "sayhi", "khalil.sayhi1@esprit.tn", "khalil", true,Role.CHEF_DEPARTEMENT );
 		int id = this.iemployeservice.addOrUpdateEmploye(empl);
 		 assertThat(empl.getNom()).isEqualTo("khalil");
