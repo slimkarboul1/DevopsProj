@@ -1,8 +1,11 @@
 package tn.esprit.spring.services;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,15 +17,22 @@ import tn.esprit.spring.repository.EntrepriseRepository;
 
 @Service
 public class EntrepriseServiceImpl implements IEntrepriseService {
-
+	private static final Logger l = LogManager.getLogger(EntrepriseServiceImpl.class);
 	@Autowired
     EntrepriseRepository entrepriseRepoistory;
 	@Autowired
 	DepartementRepository deptRepoistory;
 	
+	
 	public int ajouterEntreprise(Entreprise entreprise) {
+		try {
 		entrepriseRepoistory.save(entreprise);
+		l.warn("Company added successfully");
 		return entreprise.getId();
+		}catch (Exception e) {
+		l.error("Error while adding company : " + e.toString());
+		}
+		return -1;
 	}
 
 	public int ajouterDepartement(Departement dep) {
@@ -45,13 +55,20 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	}
 	
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
-		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
 		List<String> depNames = new ArrayList<>();
-		for(Departement dep : entrepriseManagedEntity.getDepartements()){
-			depNames.add(dep.getName());
+		try {
+			Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
+			for(Departement dep : entrepriseManagedEntity.getDepartements()){
+				depNames.add(dep.getName());
+			}
+			l.warn("Getting Departments Names By Company Id : "+entrepriseId);
+			return depNames;
+		} catch (Exception e) {
+			l.error("Error while Getting Departments of Company Id  : " +entrepriseId+" : "+ e.toString());
 		}
 		
 		return depNames;
+		
 	}
 
 	@Transactional
