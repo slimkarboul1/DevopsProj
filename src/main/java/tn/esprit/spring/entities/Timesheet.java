@@ -62,6 +62,13 @@ public class Timesheet implements Serializable{
 		this.employe = employe;
 	}
 
+	public Timesheet(Mission mission, Employe employe, boolean isValide) {
+		super();
+		this.mission = mission;
+		this.employe = employe;
+		this.isValide = isValide;
+	}
+
 	
 	
 }
