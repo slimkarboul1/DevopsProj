@@ -14,8 +14,6 @@ import tn.esprit.spring.services.ITimesheetService;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SlimTest {
-    @Autowired
-	IEmployeService iemployeservice;
 	@Autowired
 	ITimesheetService itimesheetservice;
 	@Test
