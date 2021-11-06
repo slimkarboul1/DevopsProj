@@ -2,6 +2,8 @@ package tn.esprit.spring.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,7 @@ public class DepartementServiceImpl implements IDepartementService {
 	public List<Departement> getAllDepartements() {
 		log.warn("List Departement teessssssssssssst");
 		return (List<Departement>) deptRepoistory.findAll();
+
 	}
 
 
@@ -35,6 +38,16 @@ public class DepartementServiceImpl implements IDepartementService {
 			log.warn("department ajouté");
 			return department.getId();
 	}
+	
+	@Transactional
+	public void deleteDepartment(int DepId) {
+		 log.warn("On supprime un department");
+			this.deptRepoistory.delete(deptRepoistory.findById(DepId).get());
+			log.warn("department supprimé");
+			
+	}
+	
+
 	
 	
 

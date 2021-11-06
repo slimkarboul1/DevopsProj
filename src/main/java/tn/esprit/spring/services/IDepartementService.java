@@ -11,7 +11,7 @@ public interface IDepartementService {
 	
 	public List<Departement> getAllDepartements();
 	int addOrUpdateDepartment(Departement department);
-	
+	void deleteDepartment(int depId);
 	
 	
 
