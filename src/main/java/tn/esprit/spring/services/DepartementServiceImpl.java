@@ -26,6 +26,15 @@ public class DepartementServiceImpl implements IDepartementService {
 		log.warn("List Departement teessssssssssssst");
 		return (List<Departement>) deptRepoistory.findAll();
 	}
+
+
+	@Override
+	public int addOrUpdateDepartment(Departement department) {
+		  log.warn("On ajoute un department");
+			deptRepoistory.save(department);
+			log.warn("department ajouté");
+			return department.getId();
+	}
 	
 	
 
