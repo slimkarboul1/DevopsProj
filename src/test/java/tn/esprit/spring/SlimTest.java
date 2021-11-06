@@ -44,27 +44,27 @@ public class SlimTest {
 	
 	private static final Logger log = LogManager.getLogger(SlimTest.class);
 	
-//	@Test
-//	public void testContextLoads() {
-//		
-//		Date datedebut = new Date(2021,2,11);
-//		Date datefin = new Date(2021,6,11);
-//		TimesheetPK pk = new TimesheetPK(1,1,datedebut,datefin);
-//		Departement dep = new Departement("informatique");
-//		int idDep = this.idepartmentService.addOrUpdateDepartment(dep);
-//		
-//		Employe empl = new Employe("slim", "karboul", "slim.karboul@esprit.tn", "slim", true,Role.CHEF_DEPARTEMENT );
-//		int id = this.iemployeservice.addOrUpdateEmploye(empl);
-//		 this.iemployeservice.affecterEmployeADepartement(id, idDep);
-//		
-//		 
-//		 	MissionExterne mexterne = new MissionExterne("m1","m1","email",1);
-//		 	missionrepo.save(mexterne);
-//			Timesheet tms = new Timesheet(pk,mexterne, empl, true);
-//			itimesheetservice.ajouterTimesheet(mexterne.getId(), empl.getId(), datedebut, datefin);
-//		
-//        
-//	}
+	@Test
+	public void testContextLoads() {
+		
+		Date datedebut = new Date(2021,2,11);
+		Date datefin = new Date(2021,6,11);
+		TimesheetPK pk = new TimesheetPK(1,1,datedebut,datefin);
+		Departement dep = new Departement("informatique");
+		int idDep = this.idepartmentService.addOrUpdateDepartment(dep);
+		
+		Employe empl = new Employe("slim", "karboul", "slim.karboul@esprit.tn", "slim", true,Role.CHEF_DEPARTEMENT );
+		int id = this.iemployeservice.addOrUpdateEmploye(empl);
+		 this.iemployeservice.affecterEmployeADepartement(id, idDep);
+		
+		 
+		 	MissionExterne mexterne = new MissionExterne("m1","m1","email",1);
+		 	missionrepo.save(mexterne);
+			Timesheet tms = new Timesheet(pk,mexterne, empl, true);
+			itimesheetservice.ajouterTimesheet(mexterne.getId(), empl.getId(), datedebut, datefin);
+		
+       
+	}
 //	
 //	@Test
 //	public void editTimesheet() {
