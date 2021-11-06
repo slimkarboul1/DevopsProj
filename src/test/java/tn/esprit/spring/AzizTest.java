@@ -24,4 +24,42 @@ public class AzizTest {
 		Contrat contrat = new Contrat(new Date(),"CDI",1580);
 		assertThat(contratService.ajouterContrat(contrat)).isNotEqualTo(-1);
 	}
+	
+	
+	@Test
+	public void updateContratTest()  {
+		assertThat(contratService).isNotNull();
+		Contrat contrat = new Contrat(new Date(),"CDI",1580);
+	int ref=	contratService.ajouterContrat(contrat);
+		Contrat updates = new Contrat(new Date(),"CDI",2580);
+		assertThat(contratService.updateContratById(ref, updates)).isNotEqualTo(null);
+	}
+	
+	
+	@Test
+	public void deleteContratTest()  {
+		assertThat(contratService).isNotNull();
+		Contrat contrat = new Contrat(new Date(),"CDI",1580);
+		int ref=	contratService.ajouterContrat(contrat);
+		assertThat(contratService.deleteContratById(ref)).isNotEqualTo(null);
+	}
+	
+	@Test
+	public void getContratTest()  {
+		assertThat(contratService).isNotNull();
+		Contrat contrat = new Contrat(new Date(),"CDI",4440);
+		int ref=	contratService.ajouterContrat(contrat);
+	
+		assertThat(contratService.getContratById(ref)).isNotEqualTo(null);
+	}
+	
+	
+	@Test
+	public void getAllTest()  {
+		assertThat(contratService).isNotNull();
+		
+	
+		assertThat(contratService.getAllContrats()).isNotEqualTo(null);
+	}
+	
 }
