@@ -60,12 +60,12 @@ public class AliTest {
 		
 		ientrepriseservice.affecterDepartementAEntreprise(idDep, idEnt);
 }
-	
+	 
 	
 	@Test
 	public void deleteDepartment() {
-	Departement dep = this.idepartmentService.getAllDepartements().get(0);
-		this.idepartmentService.deleteDepartment(dep.getId());
+		List<Departement> dep = idepartmentService.getAllDepartements();
+		this.idepartmentService.deleteDepartment(dep.get(0).getId());
 	
 	}
 	
