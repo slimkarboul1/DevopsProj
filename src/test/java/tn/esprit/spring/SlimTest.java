@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import tn.esprit.spring.entities.Timesheet;
 import tn.esprit.spring.entities.TimesheetPK;
@@ -65,28 +66,30 @@ public class SlimTest {
 		
        
 	}
-//	
-//	@Test
-//	public void editTimesheet() {
-//		log.info("editing timesheet test");
-//		
-//		List<Employe> myList = this.itimesheetservice.getAllEmployeByMission(1);
-//		String mail = "new new email";
-//		Employe employeEdit = myList.get(0);
-//		this.iemployeservice.mettreAjourEmailByEmployeId(mail, employeEdit.getId());
-//		Employe empToTest = this.iemployeservice.getEmployeById(employeEdit.getId()).get();
-//		assertThat(empToTest.getEmail()).isEqualTo("new new email");
-//	}
 	
 //	@Test
+//	@Transactional
+//	public void editTimesheet() {
+//	log.info("editing timesheet test");	
+//	Mission mission = this.missionrepo.findAll().iterator().next();
+//	System.out.println("************************" + mission);
+//	List<Employe> myList = this.itimesheetservice.getAllEmployeByMission(mission.getId());
+//	String mail = "new new email";
+//	Employe employeEdit = myList.get(0);
+//	this.iemployeservice.mettreAjourEmailByEmployeId(mail, employeEdit.getId());
+//	Employe empToTest = this.iemployeservice.getEmployeById(employeEdit.getId()).get();
+//	assertThat(empToTest.getEmail()).isEqualTo("new new email");
+//	}
+//	
+//	@Test
 //	public void delteTimesheet() {
-//		Employe emp = this.iemployeservice.getAllEmployes().get(0);
-//		Date datedebut = new Date(2021,2,11);
-//		Date datefin = new Date(2021,6,11);
-//		log.info("deleting timesheet test");
-//		TimesheetPK pk = new TimesheetPK(1,emp.getId(),datedebut,datefin);
+//	Employe emp = this.iemployeservice.getAllEmployes().get(0);
+//	Date datedebut = new Date(2021,2,11);
+//	Date datefin = new Date(2021,6,11);
+//	log.info("deleting timesheet test");
+//	TimesheetPK pk = new TimesheetPK(1,emp.getId(),datedebut,datefin);
 //		Timesheet timesheet = this.itimesheetservice.getAllTimeSheet().get(0);
-//		this.itimesheetservice.deleteTimesheetById(timesheet);
+//	this.itimesheetservice.deleteTimesheetById(timesheet);
 //
 //	}
 }
