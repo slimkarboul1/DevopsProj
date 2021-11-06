@@ -3,12 +3,14 @@ package tn.esprit.spring.services;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Employe;
+import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.entities.Timesheet;
@@ -105,5 +107,17 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	public List<Employe> getAllEmployeByMission(int missionId) {
 		return timesheetRepository.getAllEmployeByMission(missionId);
 	}
+	
+	public Timesheet getTimesheetById(int timesheetid) {
+		return timesheetRepository.findById(timesheetid).get();	
+	}
 
+	public void deleteTimesheetById(Timesheet timesheet)
+	{
+		timesheetRepository.delete(timesheet);
+	}
+
+	public List<Timesheet> getAllTimeSheet() {
+		return (List<Timesheet>) timesheetRepository.findAll();
+	}
 }
