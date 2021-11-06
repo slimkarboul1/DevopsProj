@@ -31,34 +31,41 @@ public class ContratServiceImpl implements IContratService {
 	public int ajouterContrat(Contrat contrat) {
 		 l.warn("adding Contrat ...");
 		contratRepository.save(contrat);
-		l.warn("Contrat added");
+		l.warn("Contrat added :"+contrat.toString());
 		return contrat.getReference();
 	}
 	
 	
-	public void updateContratById(int contratId,Contrat contrat) {
+	public Contrat updateContratById(int contratId,Contrat contrat) {
 		l.warn("finding Contrat ...");
 		Contrat foudContrat = contratRepository.findById(contratId).get();
-		if(foudContrat!=null)
-			l.warn("Contrat not found!");
+		if(foudContrat==null)
+		{	l.warn("Contrat not found!");
+		return null;	
+		}
 		else
-			l.warn("Contrat updated!");
+		{	
 		foudContrat.setDateDebut(contrat.getDateDebut());
 		foudContrat.setSalaire(contrat.getSalaire());
 		foudContrat.setTypeContrat(contrat.getTypeContrat());
 		contratRepository.save(foudContrat);
-
+		l.warn("Contrat updated :"+foudContrat.toString());}
+return foudContrat;
 	}
 	
 	
-	public void deleteContratById(int contratId) {
+	public Contrat deleteContratById(int contratId) {
 		l.warn("deleting Contrat ...");
 		Contrat contrat = contratRepository.findById(contratId).get();
-		if(contrat!=null)
-			l.warn("Contrat not found!");
+		if(contrat==null)
+		{	l.warn("Contrat not found!");
+		return null;
+		}
+		
 		else
-			l.warn("Contrat deleted!");
+		{		l.warn("Contrat deleted!");
 		contratRepository.delete(contrat);
-
+		return contrat;
+		}
 	}
 }
