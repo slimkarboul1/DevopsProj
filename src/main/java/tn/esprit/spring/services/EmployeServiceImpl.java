@@ -3,6 +3,7 @@ package tn.esprit.spring.services;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -166,6 +167,9 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public List<Employe> getAllEmployes() {
 		return (List<Employe>) employeRepository.findAll();
+	}
+	public Optional<Employe> getEmployeById(int id){
+		return this.employeRepository.findById(id);
 	}
 
 }

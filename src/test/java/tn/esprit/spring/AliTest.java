@@ -64,8 +64,8 @@ public class AliTest {
 	
 	@Test
 	public void deleteDepartment() {
-	
-		this.idepartmentService.deleteDepartment(5);
+	Departement dep = this.idepartmentService.getAllDepartements().get(0);
+		this.idepartmentService.deleteDepartment(dep.getId());
 	
 	}
 	

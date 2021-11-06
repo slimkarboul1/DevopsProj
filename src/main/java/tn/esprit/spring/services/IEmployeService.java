@@ -2,6 +2,7 @@ package tn.esprit.spring.services;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Employe;
@@ -36,7 +37,7 @@ public interface IEmployeService {
 
 	int addOrUpdateEmploye(Employe employe);
 	
-	
+	Optional<Employe> getEmployeById(int id);
 	
 
 	
