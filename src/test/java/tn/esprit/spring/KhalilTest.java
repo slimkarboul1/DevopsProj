@@ -68,6 +68,7 @@ public class KhalilTest {
 		l.info("deleting employe test");
 		Employe empToEdit = this.iemployeservice.getAllEmployes().get(0);
 		this.iemployeservice.deleteEmployeById(empToEdit.getId());
+		l.error("going to throw a not found exception");
 		Employe empToTest = this.iemployeservice.getEmployeById(empToEdit.getId()).get();
 		assertNull(empToTest);
 	}
