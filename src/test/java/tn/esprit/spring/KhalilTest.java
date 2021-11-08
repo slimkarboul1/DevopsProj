@@ -33,7 +33,7 @@ public class KhalilTest {
 	@Autowired
 	IDepartementService idepartmentService;
 	@Test
-	public void testContextLoads() {
+	public void testAdd() {
 		Entreprise ent = new Entreprise("esprit", "test");
 		int idEnt =ientrepriseservice.ajouterEntreprise(ent) ;
 	    assertThat(idEnt).isNotEqualTo(-1);
@@ -52,7 +52,7 @@ public class KhalilTest {
 		 l.info("affection reussite done");
 	}
 	@Test
-	public void editEmploye() {
+	public void testEditEmploye() {
 		l.info("editing employe test");
 		
 		List<Employe> myList = this.iemployeservice.getAllEmployes();
@@ -63,13 +63,13 @@ public class KhalilTest {
 		assertThat(empToTest.getEmail()).isEqualTo("new email");
 	}
 	
-	@Test(expected = NoSuchElementException.class)
-	public void deleteEmploye() {
+	/*@Test(expected = NoSuchElementException.class)
+	public void testDeleteEmploye() {
 		l.info("deleting employe test");
 		Employe empToEdit = this.iemployeservice.getAllEmployes().get(0);
 		this.iemployeservice.deleteEmployeById(empToEdit.getId());
 		l.error("going to throw a not found exception");
 		Employe empToTest = this.iemployeservice.getEmployeById(empToEdit.getId()).get();
 		assertNull(empToTest);
-	}
+	}*/
 }
