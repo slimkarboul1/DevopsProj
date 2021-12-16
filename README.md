@@ -1,5 +1,6 @@
 # Project description 
 This project is the implementation all the links in the application delivery chain from design to programming to testing and deployment of a Spring boot app.
+
 ✅ Creation of unit tests using Junit.
 
 ✅ Creation of logs using Log4j.
