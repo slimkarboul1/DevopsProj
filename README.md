@@ -7,7 +7,7 @@ This project is the implementation all the links in the application delivery cha
 ✅ Configuring Docker Compose to point on the SpringBoot and MySQL images and connecting the two.
 ✅ Continuous integration and automation using the Jenkins Pipeline.
 
-#Technologies 
+# Technologies 
   Spring Boot 
   Docker
   Jenkins
